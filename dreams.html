@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonhos | Diário Mágico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/dreams.css">
+</head>
+<body>
+    <div class="magic-background"></div>
+    
+
+
+    <header class="magic-header">
+        <h1><i class="fas fa-moon"></i> Meus Sonhos</h1>
+        <nav class="magic-nav">
+            <a href="index.html"><i class="fas fa-book"></i> Diário</a>
+            <a href="tasks.html"><i class="fas fa-tasks"></i> Tarefas</a>
+            <a href="dreams.html" class="active"><i class="fas fa-moon"></i> Sonhos</a>
+            <a href="memories.html"><i class="fas fa-camera"></i> Memórias</a>
+            <a href="about.html"><i class="fas fa-user"></i> Sobre Mim</a>
+        </nav>
+    </header>
+
+    <main class="dreams-container">
+        <div class="dreams-header">
+            <h2>Registro de Sonhos</h2>
+            <button class="magic-btn add-dream-btn" id="addDream">
+                <i class="fas fa-plus"></i> Novo Sonho
+            </button>
+        </div>
+        
+        <div class="dreams-filters">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="lucid">Lúcidos</button>
+            <button class="filter-btn" data-filter="recurring">Recorrentes</button>
+            <button class="filter-btn" data-filter="nightmare">Pesadelos</button>
+        </div>
+        
+        <div class="dreams-list" id="dreamsList"></div>
+    </main>
+
+    <div class="magic-modal" id="dreamModal">
+        <div class="modal-content">
+            <span class="close-modal"><i class="fas fa-times"></i></span>
+            <h3><i class="fas fa-moon"></i> <span id="modalDreamTitle">Registrar Sonho</span></h3>
+            <input type="text" id="dreamTitle" placeholder="Título do sonho" class="modal-input">
+            <textarea id="dreamDescription" placeholder="Descreva seu sonho aqui..." class="modal-textarea"></textarea>
+            <div class="dream-options">
+                <div class="dream-option">
+                    <input type="checkbox" id="lucidDream">
+                    <label for="lucidDream">Sonho Lúcido</label>
+                </div>
+                <div class="dream-option">
+                    <input type="checkbox" id="recurringDream">
+                    <label for="recurringDream">Sonho Recorrente</label>
+                </div>
+                <div class="dream-option">
+                    <input type="checkbox" id="nightmare">
+                    <label for="nightmare">Pesadelo</label>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button class="magic-btn cancel-btn">Cancelar</button>
+                <button class="magic-btn save-btn" id="saveDream">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="magic-modal" id="confirmModal">
+        <div class="modal-content small">
+            <h3 id="confirmMessage">Tem certeza que deseja excluir este sonho?</h3>
+            <div class="modal-buttons">
+                <button class="magic-btn cancel-btn">Cancelar</button>
+                <button class="magic-btn confirm-btn">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="magic-footer">
+        <div class="footer-content">
+            <p>Criado por Avril Stihler | Contato: avril@diariomagico.com</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/dreams.js"></script>
+</body>
+</html>
