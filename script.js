@@ -8,6 +8,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentPageSpan = document.getElementById('currentPage');
     const totalPagesSpan = document.getElementById('totalPages');
 
+
+    document.getElementById("deletePage").addEventListener("click", function () {
+        const pages = JSON.parse(localStorage.getItem("magicDiaryEntries")) || [];
+        const currentPageIndex = parseInt(document.getElementById("currentPage").textContent) - 1;
+    
+        if (pages.length === 0) return;
+    
+        if (confirm("Tem certeza que deseja excluir esta página? Essa ação não pode ser desfeita.")) {
+            pages.splice(currentPageIndex, 1);
+            localStorage.setItem("magicDiaryEntries", JSON.stringify(pages));
+            location.reload();
+        }
+    });
+    
+
+    
     // Estado do diário
     let currentPage = 0;
     let diaryEntries = [];
