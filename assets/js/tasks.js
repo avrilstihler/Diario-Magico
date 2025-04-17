@@ -16,7 +16,9 @@ class TaskManager {
         this.taskModal = document.getElementById('taskModal');
         this.confirmModal = document.getElementById('confirmModal');
         this.closeModalBtn = document.querySelector('.close-modal');
-        this.cancelBtn = document.querySelector('.cancel-btn');
+        this.cancelTaskBtn = this.taskModal.querySelector('.cancel-btn');
+this.cancelConfirmBtn = this.confirmModal.querySelector('.cancel-btn');
+
         this.saveTaskBtn = document.getElementById('saveTask');
         this.confirmBtn = document.querySelector('.confirm-btn');
         this.taskTitle = document.getElementById('taskTitle');
@@ -215,25 +217,33 @@ class TaskManager {
         this.addTaskBtn.addEventListener('click', () => this.openAddModal());
         this.saveTaskBtn.addEventListener('click', () => this.saveTask());
         this.confirmBtn.addEventListener('click', () => this.deleteTask());
-
+    
         // Modais
         this.closeModalBtn.addEventListener('click', () => this.closeTaskModal());
+        
+        // Corrigido: Cancelar modal de exclusão
+        this.cancelConfirmBtn.addEventListener('click', () => this.closeConfirmModal());
+    
+        // Corrigido: Cancelar modal de tarefa
         this.cancelBtn.addEventListener('click', () => {
-            this.closeTaskModal();
-            this.closeConfirmModal();
+            this.closeTaskModal();  // Fecha apenas o modal de adicionar/editar tarefa
         });
-
+    
         // Filtros
         this.filterButtons.forEach(btn => {
             btn.addEventListener('click', () => this.setFilter(btn.dataset.filter));
         });
-
+    
         // Fechar modais ao clicar fora
         window.addEventListener('click', (e) => {
-            if (e.target === this.taskModal) this.closeTaskModal();
-            if (e.target === this.confirmModal) this.closeConfirmModal();
+            if (e.target === this.taskModal) {
+                this.closeTaskModal();
+            }
+            if (e.target === this.confirmModal) {
+                this.closeConfirmModal();
+            }
         });
-
+    
         // Teclado
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
@@ -242,7 +252,7 @@ class TaskManager {
             }
         });
     }
-}
+}    
 
 // Inicializar o gerenciador de tarefas
 document.addEventListener('DOMContentLoaded', () => {

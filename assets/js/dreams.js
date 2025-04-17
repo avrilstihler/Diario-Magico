@@ -14,11 +14,12 @@ class DreamManager {
         this.dreamsList = document.getElementById('dreamsList');
         this.addDreamBtn = document.getElementById('addDream');
         this.dreamModal = document.getElementById('dreamModal');
-        this.confirmModal = document.getElementById('confirmModal');
+        this.deleteModal = document.getElementById('deleteConfirmModal');
         this.closeModalBtn = document.querySelector('.close-modal');
-        this.cancelBtn = document.querySelector('.cancel-btn');
+        this.cancelDeleteBtn = document.getElementById('cancelDelete');
+        this.closeDeleteBtn = document.getElementById('closeDeleteModal');
         this.saveDreamBtn = document.getElementById('saveDream');
-        this.confirmBtn = document.querySelector('.confirm-btn');
+        this.confirmDeleteBtn = document.getElementById('confirmDelete');
         this.dreamTitle = document.getElementById('dreamTitle');
         this.dreamDescription = document.getElementById('dreamDescription');
         this.lucidCheckbox = document.getElementById('lucidDream');
@@ -93,7 +94,7 @@ class DreamManager {
     createDreamElement(dream) {
         const dreamElement = document.createElement('div');
         dreamElement.className = 'dream-item';
-        
+
         if (dream.isLucid) dreamElement.classList.add('lucid');
         if (dream.isRecurring) dreamElement.classList.add('recurring');
         if (dream.isNightmare) dreamElement.classList.add('nightmare');
@@ -110,9 +111,9 @@ class DreamManager {
         });
 
         const tags = [];
-        if (dream.isLucid) tags.push({text: 'Lúcido', class: 'lucid'});
-        if (dream.isRecurring) tags.push({text: 'Recorrente', class: 'recurring'});
-        if (dream.isNightmare) tags.push({text: 'Pesadelo', class: 'nightmare'});
+        if (dream.isLucid) tags.push({ text: 'Lúcido', class: 'lucid' });
+        if (dream.isRecurring) tags.push({ text: 'Recorrente', class: 'recurring' });
+        if (dream.isNightmare) tags.push({ text: 'Pesadelo', class: 'nightmare' });
 
         dreamElement.innerHTML = `
             <div class="dream-title">${dream.title}</div>
@@ -167,8 +168,7 @@ class DreamManager {
 
     showDeleteConfirmation(dreamId) {
         this.dreamToDelete = dreamId;
-        document.getElementById('confirmMessage').textContent = 'Tem certeza que deseja excluir este sonho?';
-        this.confirmModal.style.display = 'flex';
+        this.deleteModal.style.display = 'flex';
     }
 
     saveDream() {
@@ -184,7 +184,6 @@ class DreamManager {
         }
 
         if (this.currentDreamId) {
-            // Editar sonho existente
             const index = this.dreams.findIndex(d => d.id === this.currentDreamId);
             if (index !== -1) {
                 this.dreams[index] = {
@@ -197,7 +196,6 @@ class DreamManager {
                 };
             }
         } else {
-            // Adicionar novo sonho
             this.dreams.push({
                 id: this.generateId(),
                 title,
@@ -218,62 +216,52 @@ class DreamManager {
         this.dreams = this.dreams.filter(d => d.id !== this.dreamToDelete);
         this.saveDreams();
         this.renderDreams();
-        this.closeConfirmModal();
+        this.closeDeleteModal();
     }
 
     closeDreamModal() {
         this.dreamModal.style.display = 'none';
     }
 
-    closeConfirmModal() {
-        this.confirmModal.style.display = 'none';
+    closeDeleteModal() {
+        this.deleteModal.style.display = 'none';
         this.dreamToDelete = null;
     }
 
     setFilter(filter) {
         this.filter = filter;
         this.renderDreams();
-        
         this.filterButtons.forEach(btn => {
             btn.classList.toggle('active', btn.dataset.filter === filter);
         });
     }
 
     setupEventListeners() {
-        // Botões
         this.addDreamBtn.addEventListener('click', () => this.openAddModal());
         this.saveDreamBtn.addEventListener('click', () => this.saveDream());
-        this.confirmBtn.addEventListener('click', () => this.deleteDream());
-
-        // Modais
+        this.confirmDeleteBtn.addEventListener('click', () => this.deleteDream());
+        this.cancelDeleteBtn.addEventListener('click', () => this.closeDeleteModal());
+        this.closeDeleteBtn.addEventListener('click', () => this.closeDeleteModal());
         this.closeModalBtn.addEventListener('click', () => this.closeDreamModal());
-        this.cancelBtn.addEventListener('click', () => {
-            this.closeDreamModal();
-            this.closeConfirmModal();
-        });
 
-        // Filtros
         this.filterButtons.forEach(btn => {
             btn.addEventListener('click', () => this.setFilter(btn.dataset.filter));
         });
 
-        // Fechar modais ao clicar fora
         window.addEventListener('click', (e) => {
             if (e.target === this.dreamModal) this.closeDreamModal();
-            if (e.target === this.confirmModal) this.closeConfirmModal();
+            if (e.target === this.deleteModal) this.closeDeleteModal();
         });
 
-        // Teclado
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 this.closeDreamModal();
-                this.closeConfirmModal();
+                this.closeDeleteModal();
             }
         });
     }
 }
 
-// Inicializar o gerenciador de sonhos
 document.addEventListener('DOMContentLoaded', () => {
     const dreamManager = new DreamManager();
 });

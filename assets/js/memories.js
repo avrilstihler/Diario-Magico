@@ -281,7 +281,7 @@ class MemoryManager {
         this.confirmBtn.addEventListener('click', () => this.deleteMemory());
         this.editMemoryBtn.addEventListener('click', () => this.openEditModal());
         this.deleteMemoryBtn.addEventListener('click', () => this.showDeleteConfirmation());
-
+    
         // Pré-visualização da imagem
         this.memoryImage.addEventListener('change', (e) => {
             if (e.target.files[0]) {
@@ -294,7 +294,7 @@ class MemoryManager {
                 reader.readAsDataURL(e.target.files[0]);
             }
         });
-
+    
         // Modais
         this.closeModalBtns.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -303,30 +303,33 @@ class MemoryManager {
                 this.closeConfirmModal();
             });
         });
-
-        this.cancelBtn.addEventListener('click', () => {
-            this.closeMemoryModal();
-            this.closeConfirmModal();
+    
+        // Corrigido: fecha os modais com todos os botões de cancelar
+        document.querySelectorAll('.cancel-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                this.closeMemoryModal();
+                this.closeConfirmModal();
+            });
         });
-
+    
         // Filtros
         this.filterButtons.forEach(btn => {
             btn.addEventListener('click', () => this.setFilter(btn.dataset.filter));
         });
-
+    
         // Busca
         this.memorySearch.addEventListener('input', (e) => {
             this.searchQuery = e.target.value.toLowerCase();
             this.renderMemories();
         });
-
+    
         // Fechar modais ao clicar fora
         window.addEventListener('click', (e) => {
             if (e.target === this.memoryModal) this.closeMemoryModal();
             if (e.target === this.viewMemoryModal) this.closeViewMemoryModal();
             if (e.target === this.confirmModal) this.closeConfirmModal();
         });
-
+    
         // Teclado
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
@@ -336,6 +339,7 @@ class MemoryManager {
             }
         });
     }
+    
 }
 
 // Inicializar o gerenciador de memórias

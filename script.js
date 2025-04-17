@@ -10,17 +10,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     document.getElementById("deletePage").addEventListener("click", function () {
-        const pages = JSON.parse(localStorage.getItem("magicDiaryEntries")) || [];
+        const modal = document.getElementById("deleteConfirmModal");
+        modal.style.display = "flex";
+      
+        const confirmBtn = document.getElementById("confirmDelete");
+        const cancelBtn = document.getElementById("cancelDelete");
+        const closeBtn = document.getElementById("closeDeleteModal");
+      
         const currentPageIndex = parseInt(document.getElementById("currentPage").textContent) - 1;
-    
-        if (pages.length === 0) return;
-    
-        if (confirm("Tem certeza que deseja excluir esta página? Essa ação não pode ser desfeita.")) {
-            pages.splice(currentPageIndex, 1);
-            localStorage.setItem("magicDiaryEntries", JSON.stringify(pages));
-            location.reload();
+      
+        function closeModal() {
+          modal.style.display = "none";
+          confirmBtn.removeEventListener("click", onConfirm);
+          cancelBtn.removeEventListener("click", closeModal);
+          closeBtn.removeEventListener("click", closeModal);
         }
-    });
+      
+        function onConfirm() {
+          const pages = JSON.parse(localStorage.getItem("magicDiaryEntries")) || [];
+          pages.splice(currentPageIndex, 1);
+          localStorage.setItem("magicDiaryEntries", JSON.stringify(pages));
+          closeModal();
+          location.reload();
+        }
+      
+        confirmBtn.addEventListener("click", onConfirm);
+        cancelBtn.addEventListener("click", closeModal);
+        closeBtn.addEventListener("click", closeModal);
+      });
+      
     
 
     

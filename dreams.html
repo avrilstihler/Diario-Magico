@@ -70,15 +70,16 @@
         </div>
     </div>
 
-    <div class="magic-modal" id="confirmModal">
+    <div id="deleteConfirmModal" class="magic-modal">
         <div class="modal-content small">
-            <h3 id="confirmMessage">Tem certeza que deseja excluir este sonho?</h3>
-            <div class="modal-buttons">
-                <button class="magic-btn cancel-btn">Cancelar</button>
-                <button class="magic-btn confirm-btn">Confirmar</button>
-            </div>
+          <span class="close-modal" id="closeDeleteModal">&times;</span>
+          <h3>Deseja excluir esse sonho?</h3>
+          <div class="modal-buttons">
+            <button class="magic-btn cancel-btn" id="cancelDelete">Cancelar</button>
+            <button class="magic-btn confirm-btn" id="confirmDelete">Excluir</button>
+          </div>
         </div>
-    </div>
+      </div>
 
     <footer class="magic-footer">
         <div class="footer-content">

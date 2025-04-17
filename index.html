@@ -41,7 +41,18 @@
             </div>
         </main>
     </div>
-
+    <div id="deleteConfirmModal" class="magic-modal">
+        <div class="modal-content small">
+          <span class="close-modal" id="closeDeleteModal">&times;</span>
+          <h3>Deseja realmente apagar esta página?</h3>
+          <p style="text-align: center; font-family: 'Itim', cursive;">Essa ação é permanente, como um feitiço sem volta.</p>
+          <div class="modal-buttons">
+            <button class="magic-btn cancel-btn" id="cancelDelete">Cancelar</button>
+            <button class="magic-btn confirm-btn" id="confirmDelete">Excluir</button>
+          </div>
+        </div>
+      </div>
+      
     <div class="footer-controls">
         <button class="spell-button" id="prevPage"><i class="fas fa-chevron-left"></i></button>
         <button class="spell-button" id="addPage"><i class="fas fa-plus"></i></button>
@@ -54,7 +65,7 @@
         <div class="footer-content">
             <div class="footer-info">
                 <p>Página <span id="currentPage">1</span> de <span id="totalPages">1</span></p>
-                <p>Criado por Avril Stihler | 2025 </p>
+                <p>Criado por Avril Stihler | 2025</p>
             </div>
         </div>
     </footer>

@@ -55,7 +55,10 @@
                 <i class="fas fa-image"></i>
                 <p>Pré-visualização aparecerá aqui</p>
             </div>
-            <input type="file" id="memoryImage" accept="image/*" class="modal-input">
+            <label class="modal-label" for="memoryImage">Escolha uma imagem (somente PNG):</label>
+<input type="file" id="memoryImage" accept="image/png" class="modal-input">
+<small class="format-info">Apenas imagens no formato <strong>.png</strong> são permitidas.</small>
+
             <input type="text" id="memoryTitle" placeholder="Título (opcional)" class="modal-input">
             <textarea id="memoryDescription" placeholder="Descrição ou local (opcional)" class="modal-textarea"></textarea>
             <div class="modal-buttons">
