@@ -1,73 +1,87 @@
-# 📔 Diário Mágico ✨
+<h1 align="center">📔 Diário Mágico ✨</h1>
 
-![Capa do Diário Mágico](assets/images/book-cover.jpg)
+<p align="center">
+  Um diário pessoal interativo com um toque de magia. Organize pensamentos, tarefas, sonhos e memórias em um ambiente encantador, com persistência de dados local — tudo com um visual suave e um tema roxo místico. 💜
+</p>
 
-Um diário pessoal interativo com um toque de magia. Organize pensamentos, tarefas, sonhos e memórias em um ambiente encantador com persistência de dados local — tudo com um visual suave e um tema roxo místico. 💜
+<p align="center">
+  <img src="assets/images/book-cover.jpg" alt="Capa do Diário Mágico" width="300"/>
+</p>
 
 ---
 
 ## 🌟 Funcionalidades Principais
 
 - 📖 **Diário Interativo**  
-  Páginas que viram como um livro real, com efeito 3D e escrita personalizada.
+  Efeito 3D ao virar as páginas, como um livro real, com espaço para registrar seus sentimentos, ideias e reflexões.
 
 - ✅ **Lista de Tarefas**  
-  Gerencie compromissos com marcação de concluído e filtros inteligentes.
+  Marque como concluído, filtre tarefas e mantenha sua rotina sob controle com leveza e encanto.
 
 - 🌙 **Registro de Sonhos**  
-  Registre sonhos e categorize por tipo: lúcidos, pesadelos e outros.
+  Categorize seus sonhos (lúcidos, pesadelos, simbólicos) e acompanhe padrões com um toque poético.
 
 - 📸 **Álbum de Memórias**  
-  Galeria de fotos estilo polaroid com espaço para descrições pessoais.
+  Estilo polaroid com espaço para descrição.  
+  > ⚠️ **Nota Importante**:  
+  > - Apenas **capturas de tela** são aceitas atualmente.  
+  > - **Imagens podem não ser salvas corretamente** dependendo do navegador.  
+  > - Recomendamos salvar as imagens antes e testar com cuidado.
 
 - 👤 **Perfil Personalizável**  
-  Adicione sua foto e informações para um cantinho só seu.
+  Adicione sua foto e informações sobre você. Um espaço só seu dentro desse universo encantado.
 
-- 🔒 **Persistência de Dados**  
-  Todos os dados são salvos automaticamente via `LocalStorage`.
+- 🔒 **Persistência Local de Dados**  
+  Todos os dados são salvos automaticamente no navegador via `LocalStorage`.
+
+> ⚠️ **Atenção**:  
+> Também podem ocorrer **falhas pontuais ao salvar registros no Diário**. Sempre que possível, copie seus textos importantes antes de recarregar a página.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **HTML5, CSS3 e JavaScript Vanilla**
-- **LocalStorage** para armazenar dados no navegador
-- **Font Awesome** para os ícones
-- **Google Fonts** com tipografia encantadora
-- **Design Responsivo** para todos os tamanhos de tela
+<div align="center">
+
+| 💻 Front-end | 🧠 Lógica e Armazenamento | 🎨 Estilo e Visual |
+|-------------|---------------------------|--------------------|
+| ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) | ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) |
+| - | ![LocalStorage](https://img.shields.io/badge/LocalStorage-Enabled-blueviolet?style=for-the-badge) | ![FontAwesome](https://img.shields.io/badge/Font%20Awesome-Icons-blue?style=for-the-badge&logo=fontawesome&logoColor=white) |
+| - | - | ![Google Fonts](https://img.shields.io/badge/Google%20Fonts-Loaded-purple?style=for-the-badge&logo=googlefonts&logoColor=white) |
+
+</div>
 
 ---
 
-## 🎨 Estilo e Experiência
+## 🎨 Experiência e Estilo
 
-> Com um tema roxo místico, o Diário Mágico oferece:
+✨ Com um tema roxo suave e mágico, o Diário oferece:
 
-- Paleta suave em tons de lilás e roxo
-- Fontes cursivas e manuscritas
-- Animações leves e transições suaves
-- Estilo de páginas com linhas de caderno
-- Interface intuitiva e acessível
-
----
-
-## 📷 Prévia do Projeto
-
-> *(adicione aqui um GIF ou vídeo demonstrativo, se quiser)*
+- Paleta em tons de lilás, lavanda e púrpura  
+- Fontes cursivas e manuscritas para um ar intimista  
+- Animações leves, transições fluidas e efeitos visuais encantadores  
+- Estilo de caderno com linhas para escrita  
+- Interface intuitiva e acessível, feita com carinho 💫
 
 ---
 
-## 💌 Comece a usar
+## 🎥 Prévia do Projeto
 
-Basta abrir o `index.html` em seu navegador e aproveitar sua experiência mágica!
-
----
-
-## 🤝 Contribuições
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir *issues*, sugerir melhorias ou enviar um *pull request*.
+> *(Você pode adicionar aqui um GIF ou vídeo demonstrando a interface do diário em ação!)*
 
 ---
 
-## 🧙‍♀️ Feito com carinho por [Seu Nome Aqui]
+## 🤝 Contribua com Magia
+
+Contribuições são mais do que bem-vindas!  
+Sinta-se livre para abrir **issues**, sugerir melhorias ou enviar um **pull request**.  
+Vamos fazer esse diário brilhar ainda mais juntos!
+
+---
+
+## 🧙‍♀️ Criado com carinho por **Avril**
+
+> “Escrever é uma forma de tocar o mundo sem sair de dentro.”  
+> _— Diário Mágico_
 
 ---
