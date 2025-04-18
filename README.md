@@ -4,9 +4,9 @@
   Um diário pessoal interativo com um toque de magia. Organize pensamentos, tarefas, sonhos e memórias em um ambiente encantador, com persistência de dados local.
 </p>
 
-![&&&&](images/Diario.jpg)
+![&&&&](Images/Diario.jpg)
 
-
+> Apenas para uso recreativo, pois pode apresentar erros de performance.
 
 ## Funcionalidades Principais
 
