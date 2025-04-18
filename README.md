@@ -4,9 +4,7 @@
   Um diário pessoal interativo com um toque de magia. Organize pensamentos, tarefas, sonhos e memórias em um ambiente encantador, com persistência de dados local.
 </p>
 
-<p align="center">
-  <img src="assets/images/book-cover.jpg" alt="Capa do Diário Mágico" width="300"/>
-</p>
+![&&&&](images/Diario.jpg)
 
 
 
